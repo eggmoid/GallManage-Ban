@@ -19,6 +19,7 @@ post "/block", :provides => :json do
   end
 
   agent = Mechanize.new
+  agent.user_agent = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/95.0.4638.54 Safari/537.36"
   page = agent.get("https://gall.dcinside.com/mgallery/board/lists?id=girlgroup")
 
   link = page.links.select { |l| l.text == "로그인" }.first
